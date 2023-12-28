@@ -76,7 +76,7 @@ class TestCart:
         cart.add_product(product)
         count_before_remove, count_remove = cart.products[product], 1
         cart.remove_product(product, count_remove)
-        assert cart.products[product] == count_before_remove-count_remove
+        assert cart.products[product] == count_before_remove - count_remove
 
     def test_cart_remove_product_without_count(self, cart, product):
         cart.add_product(product)
@@ -85,7 +85,7 @@ class TestCart:
 
     def test_cart_remove_product_more_than_available(self, cart, product):
         cart.add_product(product)
-        cart.remove_product(product, product.quantity+1)
+        cart.remove_product(product, product.quantity + 1)
         assert cart.products[product] == 0
 
     def test_cart_clear(self, cart, product):
@@ -95,7 +95,7 @@ class TestCart:
 
     def test_cart_get_total_price(self, cart, product):
         cart.add_product(product)
-        excepted_count = float(cart.products[product]*product.price)
+        excepted_count = float(cart.products[product] * product.price)
         assert cart.get_total_price() == excepted_count
 
     def test_cart_buy(self, cart, product):
